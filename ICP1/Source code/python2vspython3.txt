@@ -1,0 +1,13 @@
+Python 2.X :
+  * print syntax: In the print statement, no parenthesis is required.
+                Example: print "python."
+  * Division operator gives the result to the nearest number (Integer).
+                Example: 3/3, Result is 1
+  * raw_input() function is used to get the input from the user.
+
+ Python 3.X :
+  * In the print statement, parenthesis is required.
+                Example: print("python")
+  * Division operator gives the exact result(float).
+                Example: 3/3, Result is 1.0
+  * Input() function is used to get input from the user.
