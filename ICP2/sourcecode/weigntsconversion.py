@@ -6,8 +6,6 @@ for i in range(N):
     lbs.append(lb)
 print("Given weights in lbs ", lbs)
 
-# list comprehension
-
+# using list comprehension to convert lbs to kgs
 kgs = [x * 0.45359237 for x in lbs]
-
-print("Weights converted int0 kgs: ", kgs)
+print("Weights converted into kgs: ", kgs)
