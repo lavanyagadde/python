@@ -15,13 +15,6 @@ while line != '':
 
     line = filename.readline()
 
-# filename_output = open('output.txt', 'w')
-# for i in wordcount:
-#     output = i + ':' + str(wordcount[i])
-#     print(output)
-#     filename_output.write(output+'\n')
-# filename_output.close()
-
 f_output = open("output1.txt", "w")
 f_output.write(str(wordcount))
 f_output.close
