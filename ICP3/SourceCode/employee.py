@@ -23,16 +23,16 @@ class Employee:
 
 
 class Fulltime_Employee(Employee):  # inheriting the Employee class
-    def __init__(self, name, family, salary, department, type):
+    def __init__(self, name, family, salary, department, emp_type):
         Employee.__init__(self, name, family, salary, department)
-        self.type = type
+        self.emp_type = emp_type
 
     def display(self):  # Displaying Employee details
         print('Name of the Employee:', self.name)
         print('Family name of the Employee:', self.family)
         print('Salary of the Employee Annually:', self.salary)
         print('Department Employee working:', self.department)
-        print('Type of the Employment', self.type)
+        print('Type of the Employment', self.emp_type)
         print('***')
 
 
