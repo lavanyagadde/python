@@ -5,7 +5,8 @@ from sklearn.metrics import classification_report, accuracy_score
 
 # reading the dataset
 glass_data = pd.read_csv('glass.csv')
-x_train = glass_data[['RI','Na','Mg','Al','Si','K','Ca','Ba','Fe']]
+# x_train = glass_data[['RI','Na','Mg','Al','Si','K','Ca','Ba','Fe']]
+x_train = glass_data.drop("Type", axis=1)
 y_train = glass_data['Type']
 
 # splitting train and test data using train_test_split
