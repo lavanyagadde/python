@@ -37,9 +37,6 @@ pca = PCA(2)
 x_pca = pca.fit_transform(x)
 # PCA after scaling
 X_pca_scaled = pca.fit_transform(X_scaled)
-df1 = pd.DataFrame(data=X_pca_scaled)
-print(' ********************* ')
-
 
 # bonus Questions1: kmeans algorithm on the PCA result
 # PCA+KMEANS
