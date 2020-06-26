@@ -33,22 +33,34 @@ print('Silhouette score:', score)
 # task 4: Applying PCA
 from sklearn.decomposition import PCA
 pca = PCA(2)
-X_pca = pca.fit_transform(X_scaled)
-df2 = pd.DataFrame(data=X_pca)
-finaldf = pd.concat([df2, cc_dataset[['TENURE']]],axis=1)
-print(finaldf)
+# PCA before scaling
+x_pca = pca.fit_transform(x)
+# PCA after scaling
+X_pca_scaled = pca.fit_transform(X_scaled)
+df1 = pd.DataFrame(data=X_pca_scaled)
 print(' ********************* ')
 
+
 # bonus Questions1: kmeans algorithm on the PCA result
-# finding null values
-print(finaldf.isnull().sum())
-x1 = finaldf.iloc[:,1:-1]
-y1 = finaldf.iloc[:-1]
-km1 = KMeans(n_clusters=3, random_state=0)
-km1.fit(x1)
-y_cluster_kmeans1 = km1.predict(x1)
-print('Silhouette score after applying scale and PCA: ', metrics.silhouette_score(x1, y_cluster_kmeans1))
+# PCA+KMEANS
+km = KMeans(n_clusters=3)
+km.fit(x_pca)
+# predict the cluster for each data point
+y_cluster_kmeans1= km.predict(x_pca)
+print('Silhouette score for PCA+KMEANS : ', metrics.silhouette_score(x_pca, y_cluster_kmeans1))
+
+# SCALING+PCA+KMEANS
+km = KMeans(n_clusters=3)
+km.fit(X_pca_scaled)
+# predict the cluster for each data point
+y_cluster_kmeans2= km.predict(X_pca_scaled)
+print('Silhouette score for SCALING+PCA+KMEANS : ', metrics.silhouette_score(X_pca_scaled, y_cluster_kmeans2))
 
 # bonus Questions2: Visualize the clustering of first bonus question
-plt.scatter(finaldf.iloc[:, 0], finaldf.iloc[:, 1],finaldf.iloc[:, 2], c=y_cluster_kmeans1)
+# PCA+KMEANS
+plt.scatter(x_pca[:, 0], x_pca[:, 1], c=y_cluster_kmeans1)
+plt.show()
+
+# SCALING+PCA+KMEANS
+plt.scatter(X_pca_scaled[:, 0], X_pca_scaled[:, 1], c=y_cluster_kmeans2)
 plt.show()
